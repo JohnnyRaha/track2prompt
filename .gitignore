@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Audio and outputs (keep your music out of the repo)
+*.wav
+*.mp3
+*.flac
+*.aiff
+*.m4a
+stems/
+analysis*.json
+
+# Secrets and local settings
+.env
+*.key
+
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/

@@ -26,6 +26,56 @@ python make_test_audio.py
 python -m track2prompt.cli test_track.wav --style "deep house"
 ```
 
+That prints:
+
+```text
+test_track.wav  (62s)
+----------------------------------------------------------------
+  tempo       123.0 BPM   (straight, tightly quantised)
+  key         C major  (confidence 0.11)
+  brightness  dark  (centroid 1092 Hz)
+  dynamics    dynamic, open master  (crest 23.3 dB)
+  image       very wide
+  form        A-B-A
+----------------------------------------------------------------
+
+PROMPT
+
+deep house, upbeat at 123 BPM, in C major, straight, tightly quantised. busy
+rhythmic activity, bass-heavy, dark tonal balance. dynamic, open master, large
+reverberant space, sharp, punchy transients, very wide stereo image. chords
+drawn from C, Am, F, Gm, Em, chord changes about every 1 bar. Arrangement:
+verse / development (15s) → chorus / peak section (31s) → outro (16s). Form
+A-B-A.
+```
+
+Tempo and form match the ground truth. The key comes back as C major, the
+relative major of A minor, with a confidence of only 0.11 — see
+[Known limits](#known-limits).
+
+Add `--suno --instrumental` for Suno-formatted fields instead:
+
+```text
+STYLE FIELD  [167/1000 chars]
+
+deep house, instrumental, steady driving, deep bass, punchy drums, tight programmed groove, dynamic open mix, spacious reverb, wide stereo, dark tone, 123 BPM, C major
+
+LYRICS FIELD  [89 chars]
+
+[Verse]
+[Instrumental - 15s]
+
+[Chorus]
+[Instrumental - 31s]
+
+[Outro]
+[Instrumental - 16s]
+
+NEGATIVE TAGS
+
+harsh treble, overcompressed, distorted
+```
+
 ## Use
 
 ```bash
